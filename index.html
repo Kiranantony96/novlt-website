@@ -19,7 +19,6 @@
       text-align: center;
       padding: 60px 20px;
       background: linear-gradient(135deg, #141414, #0a0a0a);
-      position: relative;
     }
 
     .logo-box img {
@@ -248,11 +247,13 @@
 
     <div class="enquiry" id="enquiryForm">
       <h3>Service Enquiry</h3>
-      <input type="text" placeholder="Your Name" required>
-      <input type="tel" placeholder="Phone Number" required>
-      <input type="text" placeholder="Preferred Time to Call">
-      <textarea placeholder="Your Location or Message" rows="4"></textarea>
-      <button type="submit">Submit Enquiry</button>
+      <form id="enquirySubmitForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="tel" id="phone" placeholder="Phone Number" required>
+        <input type="text" id="time" placeholder="Preferred Time to Call">
+        <textarea id="message" placeholder="Your Location or Message" rows="4"></textarea>
+        <button type="submit">Submit Enquiry</button>
+      </form>
     </div>
   </section>
 
@@ -273,7 +274,7 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 NOVLT Associates | Architects & Builders | Designed in Vadakkencherry,Palakkad, Kerala</p>
+    <p>&copy; 2025 NOVLT Associates | Architects & Builders | Designed in Vadakkencherry, Palakkad, Kerala</p>
   </footer>
 
   <script>
@@ -281,6 +282,24 @@
       const toggle = document.getElementById('modeToggle');
       toggle.addEventListener('change', () => {
         document.body.classList.toggle('light-mode');
+      });
+
+      document.getElementById('enquirySubmitForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const time = document.getElementById('time').value;
+        const message = document.getElementById('message').value;
+
+        const res = await fetch('http://localhost:3000/enquiry', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, phone, time, message })
+        });
+
+        const data = await res.json();
+        alert(data.message);
+        document.getElementById('enquiryForm').style.display = 'none';
       });
     });
 
