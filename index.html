@@ -3,74 +3,149 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="NOVLT Associates - Architects and Builders in Vadakkencherry, Palakkad, delivering exceptional architectural design and construction solutions.">
+  <meta name="keywords" content="Architects in Vadakkencherry, Builders in Palakkad, Construction Company Kerala, House Design Palakkad, NOVLT Associates, Modern Architecture Kerala">
   <title>NOVLT Associates | Architects & Builders</title>
-  <meta name="description" content="NOVLT Associates - Architects and Builders in Vadakkencherry, Palakkad">
-  <meta name="keywords" content="Architects in Vadakkencherry, Builders in Palakkad, NOVLT Associates">
   <style>
+    * { box-sizing: border-box; scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: #0d0d0d;
       color: #d89077;
+      transition: background 0.3s, color 0.3s;
     }
 
-    header, footer {
-      background: #141414;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .logo-box img {
-      width: 120px;
-      margin-bottom: 15px;
-    }
-
-    .logo-box h1 {
-      font-size: 2rem;
-    }
-
-    .logo-box p {
-      font-size: 1rem;
-      letter-spacing: 1px;
-    }
-
-    section {
-      padding: 50px 20px;
-      max-width: 960px;
-      margin: auto;
-    }
-
-    h2 {
-      border-bottom: 1px solid #d89077;
-      padding-bottom: 8px;
-      margin-bottom: 20px;
-    }
-
-    .services ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .services li {
-      background: #1a1a1a;
-      padding: 10px 15px;
-      margin-bottom: 10px;
-      border-left: 4px solid #d89077;
-      cursor: pointer;
-    }
-
-    .gallery {
+    header {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(135deg, #141414, #0a0a0a);
+      z-index: 999;
       display: flex;
-      gap: 15px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      border-bottom: 1px solid #2b2b2b;
       flex-wrap: wrap;
     }
 
+    .logo-box {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-box img {
+      width: 60px;
+      margin-right: 15px;
+    }
+
+    .logo-box h1 {
+      font-size: 1.5rem;
+      margin: 0;
+      color: #d89077;
+    }
+
+    .logo-box p {
+      font-size: 0.8rem;
+      margin: 0;
+      color: #aaa;
+    }
+
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 26px;
+    }
+
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      background-color: #ccc;
+      top: 0; left: 0; right: 0; bottom: 0;
+      transition: 0.4s;
+      border-radius: 34px;
+    }
+
+    .slider::before {
+      content: "";
+      position: absolute;
+      height: 20px;
+      width: 20px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+
+    input:checked + .slider::before {
+      transform: translateX(24px);
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #d89077;
+      padding-bottom: 10px;
+    }
+
+    .services li {
+      list-style: none;
+      background: #1a1a1a;
+      margin-bottom: 10px;
+      padding: 12px 18px;
+      border-left: 4px solid #d89077;
+      transition: transform 0.3s ease;
+    }
+
+    .services li:hover {
+      transform: translateX(10px);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+    }
+
     .gallery img {
-      width: 300px;
+      width: 100%;
       height: 200px;
       object-fit: cover;
       border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(216,144,119,0.2);
+      box-shadow: 0 5px 15px rgba(216, 144, 119, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(216, 144, 119, 0.4);
     }
 
     .contact a {
@@ -78,142 +153,117 @@
       text-decoration: none;
     }
 
-    .enquiry {
-      display: none;
-      background: #1a1a1a;
+    footer {
+      text-align: center;
       padding: 20px;
-      margin-top: 20px;
-      border: 1px solid #d89077;
-      border-radius: 8px;
+      background: #141414;
+      font-size: 0.9rem;
     }
 
-    .enquiry input,
-    .enquiry textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 4px;
-      border: none;
+    body.light-mode {
+      background: #fff;
+      color: #222;
     }
 
-    .enquiry button {
-      background: #d89077;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
+    body.light-mode header {
+      background: #eee;
     }
 
-    #successMessage {
-      display: none;
-      color: #5cf78c;
-      margin-top: 10px;
+    body.light-mode footer {
+      background: #ccc;
+      color: #111;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+      }
+      .logo-box {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .logo-box h1 {
+        font-size: 1.2rem;
+      }
+      .gallery img {
+        height: 180px;
+      }
     }
   </style>
 </head>
-<body onclick="hideEnquiryForm(event)">
-
+<body>
   <header>
     <div class="logo-box">
-      <img src="novlt-logo.png" alt="Logo">
-      <h1>NOVLT ASSOCIATES</h1>
-      <p>ARCHITECTS & BUILDERS | VADAKKENCHERRY, PALAKKAD</p>
+      <img src="novlt-logo.png" alt="NOVLT Logo">
+      <div>
+        <h1>NOVLT ASSOCIATES</h1>
+        <p>ARCHITECTS & BUILDERS</p>
+      </div>
+    </div>
+    <div class="toggle-container">
+      <label class="switch">
+        <input type="checkbox" id="modeToggle">
+        <span class="slider"></span>
+      </label>
     </div>
   </header>
 
   <section class="about">
-    <h2>Who We Are</h2>
-    <p>NOVLT Associates is a multidisciplinary architecture and construction firm based in Vadakkencherry, Palakkad. We specialize in crafting thoughtful, functional, and aesthetically refined spaces that elevate modern living.</p>
+    <h2>About Us</h2>
+    <p>NOVLT Associates is a multidisciplinary firm specializing in modern architecture, engineering, and construction based in Vadakkencherry, Palakkad. We turn ideas into reality — from visionary homes to high-performance commercial spaces.</p>
+    <p>We focus on <strong>design clarity, site responsiveness, and timeless materials</strong> to deliver beautiful, functional environments that reflect our clients’ ambitions.</p>
   </section>
 
   <section class="services">
     <h2>Our Services</h2>
     <ul>
-      <li onclick="event.stopPropagation(); showEnquiryForm()">Architectural Planning & Design</li>
-      <li onclick="event.stopPropagation(); showEnquiryForm()">Residential & Commercial Construction</li>
-      <li onclick="event.stopPropagation(); showEnquiryForm()">Interior Design & Renovation</li>
-      <li onclick="event.stopPropagation(); showEnquiryForm()">Project Supervision & Consultation</li>
+      <li>Architectural Planning & Design</li>
+      <li>Residential and Commercial Construction</li>
+      <li>Interior Design & Renovation</li>
+      <li>3D Modeling & Visualization</li>
+      <li>Project Management & Supervision</li>
     </ul>
-
-    <div class="enquiry" id="enquiryForm">
-      <h3>Service Enquiry</h3>
-      <form id="enquirySubmitForm">
-        <input type="text" id="name" placeholder="Your Name" required />
-        <input type="tel" id="phone" placeholder="Phone Number" required />
-        <input type="text" id="time" placeholder="Preferred Time to Call" />
-        <textarea id="message" placeholder="Your Location or Message" rows="4"></textarea>
-        <button type="submit">Submit Enquiry</button>
-        <div id="successMessage">✅ Enquiry submitted successfully!</div>
-      </form>
-    </div>
   </section>
 
   <section class="showcase">
-    <h2>Project Showcase</h2>
+    <h2>Recent Projects</h2>
     <div class="gallery">
-      <img src="SECOND.webp" alt="Modern Home">
-      <img src="THIRD.webp" alt="Commercial Building">
-      <img src="FOURTH.webp" alt="Interior">
+      <img src="SECOND.webp" alt="Modern Home Design" />
+      <img src="THIRD.webp" alt="Commercial Building" />
+      <img src="FOURTH.webp" alt="Interior Architecture" />
     </div>
   </section>
 
   <section class="contact">
-    <h2>Contact Us</h2>
+    <h2>Contact</h2>
     <p>📍 Vadakkencherry, Palakkad, Kerala</p>
     <p>📞 +91-9447194915</p>
     <p>📧 <a href="mailto:novltassociates@gmail.com">info@novltassociates.com</a></p>
   </section>
 
   <footer>
-    <p>&copy; 2025 NOVLT Associates | Designed in Vadakkencherry, Kerala</p>
+    &copy; 2025 NOVLT Associates. Designed & developed in Vadakkencherry, Kerala.
   </footer>
 
   <script>
-    function showEnquiryForm() {
-      document.getElementById('enquiryForm').style.display = 'block';
-    }
-
-    function hideEnquiryForm(event) {
-      const form = document.getElementById('enquiryForm');
-      if (form && !form.contains(event.target)) {
-        form.style.display = 'none';
-      }
-    }
-
-    document.getElementById('enquirySubmitForm').addEventListener('submit', async function (e) {
-      e.preventDefault();
-
-      const name = document.getElementById('name').value;
-      const phone = document.getElementById('phone').value;
-      const time = document.getElementById('time').value;
-      const message = document.getElementById('message').value;
-
-      try {
-        const res = await fetch('https://your-backend-url.com/enquiry', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, phone, time, message })
-        });
-
-        const data = await res.json();
-        if (res.ok) {
-          document.getElementById('successMessage').style.display = 'block';
-          document.getElementById('enquirySubmitForm').reset();
-
-          setTimeout(() => {
-            document.getElementById('successMessage').style.display = 'none';
-            document.getElementById('enquiryForm').style.display = 'none';
-          }, 3000);
-        } else {
-          alert("Submission failed. Please try again.");
-        }
-      } catch (error) {
-        console.error("Error submitting form:", error);
-        alert("Something went wrong. Please try again later.");
-      }
+    document.getElementById('modeToggle').addEventListener('change', () => {
+      document.body.classList.toggle('light-mode');
     });
-  </script>
 
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
 </body>
 </html>
