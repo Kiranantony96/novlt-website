@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="NOVLT Associates - Architects and Builders in Vadakkencherry, Palakkad, delivering exceptional architectural design and construction solutions.">
+  <meta name="keywords" content="Architects in Vadakkencherry, Builders in Palakkad, Construction Company Kerala, House Design Palakkad, NOVLT Associates, Modern Architecture Kerala">
+  <title>NOVLT Associates | Architects & Builders</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0d0d0d;
+      color: #d89077;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #141414, #0a0a0a);
+      position: relative;
+    }
+
+    .logo-box img {
+      width: 120px;
+      margin-bottom: 15px;
+    }
+
+    .logo-box h1 {
+      font-size: 2.2rem;
+      margin-bottom: 5px;
+    }
+
+    .logo-box p {
+      font-size: 1rem;
+      letter-spacing: 1.5px;
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      border-bottom: 1px solid #d89077;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      font-size: 1.8rem;
+    }
+
+    .about p,
+    .contact p {
+      margin: 15px 0;
+      font-size: 1rem;
+    }
+
+    .services ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .services li {
+      background: #1a1a1a;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-left: 4px solid #d89077;
+    }
+
+    .showcase .gallery {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .showcase img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 5px 15px rgba(216, 144, 119, 0.2);
+    }
+
+    .showcase img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(216, 144, 119, 0.4);
+    }
+
+    .contact a {
+      color: #d89077;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #141414;
+      font-size: 0.9rem;
+    }
+
+    .toggle-container {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .toggle-label {
+      font-size: 0.9rem;
+      color: #d89077;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 26px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      background-color: #ccc;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: 0.4s;
+      border-radius: 34px;
+    }
+
+    .slider::before {
+      content: "";
+      position: absolute;
+      height: 20px;
+      width: 20px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+
+    input:checked + .slider::before {
+      transform: translateX(24px);
+    }
+
+    body.light-mode {
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    body.light-mode header {
+      background: #e0e0e0;
+    }
+
+    body.light-mode .services li,
+    body.light-mode .gallery img {
+      background: #fff;
+      color: #222;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    }
+
+    body.light-mode .toggle-label {
+      color: #333;
+    }
+
+    body.light-mode footer {
+      background: #ccc;
+      color: #111;
+    }
+  </style>
+</head>
+<body>
+  <div class="toggle-container">
+    <label class="switch">
+      <input type="checkbox" id="modeToggle">
+      <span class="slider round"></span>
+    </label>
+    <span class="toggle-label">Dark Mode</span>
+  </div>
+
+  <header>
+    <div class="logo-box">
+      <img src="novlt-logo.png" alt="NOVLT Logo" />
+      <h1>NOVLT ASSOCIATES</h1>
+      <p>ARCHITECTS & BUILDERS | VADAKKENCHERRY</p>
+    </div>
+  </header>
+
+  <section class="about">
+    <h2>Who We Are</h2>
+    <p>NOVLT Associates is a multidisciplinary architecture and construction firm based in Vadakkencherry, Palakkad. We specialize in crafting thoughtful, functional, and aesthetically refined spaces that elevate modern living. With a focus on innovation, sustainability, and client-centric design, NOVLT delivers high-quality residential, commercial, and interior projects that reflect both vision and precision. Our commitment lies in transforming ideas into enduring structures that blend style with purpose.</p>
+  </section>
+
+  <section class="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li>Architectural Planning & Design</li>
+      <li>Residential and Commercial Construction</li>
+      <li>Interior Design & Renovation</li>
+      <li>Project Supervision and Consultation</li>
+    </ul>
+  </section>
+
+  <section class="showcase">
+    <h2>Project Showcase</h2>
+    <div class="gallery">
+      <img src="SECOND.webp" alt="Modern Home Design" />
+      <img src="THIRD.webp" alt="Commercial Building Exterior" />
+      <img src="FOURTH.webp" alt="Interior Architecture" />
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p>📍 Vadakkencherry, Palakkad, Kerala</p>
+    <p>📞 +91-9447194915</p>
+    <p>📧 <a href="mailto:novltassociates@gmail.com">info@novltassociates.com</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 NOVLT Associates | Architects & Builders | Designed in Vadakkencherry,Palakkad, Kerala</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.getElementById('modeToggle');
+      toggle.addEventListener('change', () => {
+        document.body.classList.toggle('light-mode');
+      });
+    });
+  </script>
+</body>
+</html>
