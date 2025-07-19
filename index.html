@@ -66,6 +66,7 @@
       padding: 10px 15px;
       margin-bottom: 10px;
       border-left: 4px solid #d89077;
+      cursor: pointer;
     }
 
     .showcase .gallery {
@@ -184,9 +185,37 @@
       background: #ccc;
       color: #111;
     }
+
+    .enquiry {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      border: 1px solid #d89077;
+      border-radius: 8px;
+      background: #1a1a1a;
+      position: relative;
+      z-index: 100;
+    }
+
+    .enquiry input, .enquiry textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 4px;
+      border: none;
+    }
+
+    .enquiry button {
+      background-color: #d89077;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
   </style>
 </head>
-<body>
+<body onclick="hideEnquiryForm(event)">
   <div class="toggle-container">
     <label class="switch">
       <input type="checkbox" id="modeToggle">
@@ -199,7 +228,7 @@
     <div class="logo-box">
       <img src="novlt-logo.png" alt="NOVLT Logo" />
       <h1>NOVLT ASSOCIATES</h1>
-      <p>ARCHITECTS & BUILDERS | VADAKKENCHERRY</p>
+      <p>ARCHITECTS & BUILDERS | VADAKKENCHERRY, Palakkad</p>
     </div>
   </header>
 
@@ -211,11 +240,20 @@
   <section class="services">
     <h2>Our Services</h2>
     <ul>
-      <li>Architectural Planning & Design</li>
-      <li>Residential and Commercial Construction</li>
-      <li>Interior Design & Renovation</li>
-      <li>Project Supervision and Consultation</li>
+      <li onclick="event.stopPropagation(); showEnquiryForm()">Architectural Planning & Design</li>
+      <li onclick="event.stopPropagation(); showEnquiryForm()">Residential and Commercial Construction</li>
+      <li onclick="event.stopPropagation(); showEnquiryForm()">Interior Design & Renovation</li>
+      <li onclick="event.stopPropagation(); showEnquiryForm()">Project Supervision and Consultation</li>
     </ul>
+
+    <div class="enquiry" id="enquiryForm">
+      <h3>Service Enquiry</h3>
+      <input type="text" placeholder="Your Name" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <input type="text" placeholder="Preferred Time to Call">
+      <textarea placeholder="Your Location or Message" rows="4"></textarea>
+      <button type="submit">Submit Enquiry</button>
+    </div>
   </section>
 
   <section class="showcase">
@@ -245,6 +283,17 @@
         document.body.classList.toggle('light-mode');
       });
     });
+
+    function showEnquiryForm() {
+      document.getElementById('enquiryForm').style.display = 'block';
+    }
+
+    function hideEnquiryForm(event) {
+      const form = document.getElementById('enquiryForm');
+      if (form && !form.contains(event.target)) {
+        form.style.display = 'none';
+      }
+    }
   </script>
 </body>
 </html>
